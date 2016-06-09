@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/ecreate/RentalCamp","disabled":false},"/var/www/html":{"guestpath":"/var/www/html","hostpath":"/Users/ecreate/RentalCamp","disabled":false}}}

@@ -1,0 +1,23 @@
+<database name="default" defaultIdMethod="native"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://xsd.propelorm.org/1.6/database.xsd"
+          namespace="Common\Model"
+>
+
+    <table name="sample" phpName="Sample">
+        <column name="id" type="BIGINT" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="name" type="VARCHAR" size="255" required="true"/>
+        <column name="image" type="LONGVARBINARY"/>
+        <column name="image_meta" type="VARCHAR" size="32"/>
+        <column name="item_a" type="VARCHAR" size="255" required="true"/>
+        <column name="item_b" type="VARCHAR" size="255" required="true"/>
+        <column name="a_category_id" type="INTEGER" required="true"/>
+        <column name="sticky_flag" type="BOOLEAN" required="true"/>
+        <column name="disable_flag" type="BOOLEAN" required="true"/>
+        <column name="favorite_flag" type="BOOLEAN" required="true"/>
+
+        <behavior name="timestampable" />
+        <behavior name="archivable" />
+    </table>
+
+</database>
