@@ -17,9 +17,9 @@ propel:
 #   database:
 #       connections:
 #           default:
-#               adapter: mysql
-#               dsn: mysql:host=localhost;port=3306;dbname=bookshelf
-#               user: root
-#               password:
+#               adapter: pgsql
+#               dsn: pgsql:host=ec2-54-163-248-218.compute-1.amazonaws.com;port=5432;dbname=dei68prohp1vuf
+#               user: ntszxwnvkamocc
+#               password: N9B-r9Fshunn2LYzAGwEPc0-bI
 #               settings:
 #                   charset: utf8

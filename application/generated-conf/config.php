@@ -1,12 +1,12 @@
 <?php
 $serviceContainer = \Propel\Runtime\Propel::getServiceContainer();
 $serviceContainer->checkVersion('2.0.0-dev');
-$serviceContainer->setAdapterClass('default', 'mysql');
+$serviceContainer->setAdapterClass('default', 'pgsql');
 $manager = new \Propel\Runtime\Connection\ConnectionManagerSingle();
 $manager->setConfiguration(array (
-  'dsn' => 'mysql:host=localhost;port=3306;dbname=bookshelf',
-  'user' => 'root',
-  'password' => 'tennis',
+  'dsn' => 'pgsql:host=ec2-54-163-248-218.compute-1.amazonaws.com;port=5432;dbname=dei68prohp1vuf',
+  'user' => 'ntszxwnvkamocc',
+  'password' => 'N9B-r9Fshunn2LYzAGwEPc0-bI',
   'settings' =>
   array (
     'charset' => 'utf8',

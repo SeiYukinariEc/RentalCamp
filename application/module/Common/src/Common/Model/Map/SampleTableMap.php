@@ -180,6 +180,7 @@ class SampleTableMap extends TableMap
         $this->setClassName('\\Common\\Model\\Sample');
         $this->setPackage('Common.Model');
         $this->setUseIdGenerator(true);
+        $this->setPrimaryKeyMethodInfo('sample_id_seq');
         // columns
         $this->addPrimaryKey('id', 'Id', 'BIGINT', true, null, null);
         $this->addColumn('name', 'Name', 'VARCHAR', true, 255, null);
@@ -188,9 +189,9 @@ class SampleTableMap extends TableMap
         $this->addColumn('item_a', 'ItemA', 'VARCHAR', true, 255, null);
         $this->addColumn('item_b', 'ItemB', 'VARCHAR', true, 255, null);
         $this->addColumn('a_category_id', 'ACategoryId', 'INTEGER', true, null, null);
-        $this->addColumn('sticky_flag', 'StickyFlag', 'BOOLEAN', true, 1, null);
-        $this->addColumn('disable_flag', 'DisableFlag', 'BOOLEAN', true, 1, null);
-        $this->addColumn('favorite_flag', 'FavoriteFlag', 'BOOLEAN', true, 1, null);
+        $this->addColumn('sticky_flag', 'StickyFlag', 'BOOLEAN', true, null, null);
+        $this->addColumn('disable_flag', 'DisableFlag', 'BOOLEAN', true, null, null);
+        $this->addColumn('favorite_flag', 'FavoriteFlag', 'BOOLEAN', true, null, null);
         $this->addColumn('created_at', 'CreatedAt', 'TIMESTAMP', false, null, null);
         $this->addColumn('updated_at', 'UpdatedAt', 'TIMESTAMP', false, null, null);
     } // initialize()

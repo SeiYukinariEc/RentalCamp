@@ -18,19 +18,14 @@ class BookController extends AbstractRestfulJsonController
 
         $apikey = $this->params()->fromHeader('apikey', null);
 
-//        $query = SampleQuery::create();
-//        $aaa = $query->find()->toArray();
+        $query = SampleQuery::create();
+        $aaa = $query->find()->toArray();
 
 
 //        $apikey->getFieldValue();
 
         return new JsonModel(
-            array('data' =>
-                array(
-                    array('id' => 1, 'name' => 'Mothership', 'band' => 'Led Zeppelin'),
-                    array('id' => 2, 'name' => 'Coda', 'band' => 'Led Zeppelin'),
-                )
-            )
+            $aaa
         );
     }
 

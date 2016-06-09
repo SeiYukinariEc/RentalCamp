@@ -193,9 +193,9 @@ class SampleArchiveTableMap extends TableMap
         $this->addColumn('item_a', 'ItemA', 'VARCHAR', true, 255, null);
         $this->addColumn('item_b', 'ItemB', 'VARCHAR', true, 255, null);
         $this->addColumn('a_category_id', 'ACategoryId', 'INTEGER', true, null, null);
-        $this->addColumn('sticky_flag', 'StickyFlag', 'BOOLEAN', true, 1, null);
-        $this->addColumn('disable_flag', 'DisableFlag', 'BOOLEAN', true, 1, null);
-        $this->addColumn('favorite_flag', 'FavoriteFlag', 'BOOLEAN', true, 1, null);
+        $this->addColumn('sticky_flag', 'StickyFlag', 'BOOLEAN', true, null, null);
+        $this->addColumn('disable_flag', 'DisableFlag', 'BOOLEAN', true, null, null);
+        $this->addColumn('favorite_flag', 'FavoriteFlag', 'BOOLEAN', true, null, null);
         $this->addColumn('created_at', 'CreatedAt', 'TIMESTAMP', false, null, null);
         $this->addColumn('updated_at', 'UpdatedAt', 'TIMESTAMP', false, null, null);
         $this->addColumn('archived_at', 'ArchivedAt', 'TIMESTAMP', false, null, null);

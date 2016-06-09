@@ -522,7 +522,7 @@ abstract class SampleArchive implements ActiveRecordInterface
      * @param      string $format The date/time format string (either date()-style or strftime()-style).
      *                            If format is NULL, then the raw DateTime object will be returned.
      *
-     * @return string|DateTime Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+     * @return string|DateTime Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL
      *
      * @throws PropelException - if unable to parse/validate the date/time value.
      */
@@ -542,7 +542,7 @@ abstract class SampleArchive implements ActiveRecordInterface
      * @param      string $format The date/time format string (either date()-style or strftime()-style).
      *                            If format is NULL, then the raw DateTime object will be returned.
      *
-     * @return string|DateTime Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+     * @return string|DateTime Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL
      *
      * @throws PropelException - if unable to parse/validate the date/time value.
      */
@@ -562,7 +562,7 @@ abstract class SampleArchive implements ActiveRecordInterface
      * @param      string $format The date/time format string (either date()-style or strftime()-style).
      *                            If format is NULL, then the raw DateTime object will be returned.
      *
-     * @return string|DateTime Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
+     * @return string|DateTime Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL
      *
      * @throws PropelException - if unable to parse/validate the date/time value.
      */
@@ -905,13 +905,7 @@ abstract class SampleArchive implements ActiveRecordInterface
             $this->name = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SampleArchiveTableMap::translateFieldName('Image', TableMap::TYPE_PHPNAME, $indexType)];
-            if (null !== $col) {
-                $this->image = fopen('php://memory', 'r+');
-                fwrite($this->image, $col);
-                rewind($this->image);
-            } else {
-                $this->image = null;
-            }
+            $this->image = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SampleArchiveTableMap::translateFieldName('ImageMeta', TableMap::TYPE_PHPNAME, $indexType)];
             $this->image_meta = (null !== $col) ? (string) $col : null;
@@ -935,21 +929,12 @@ abstract class SampleArchive implements ActiveRecordInterface
             $this->favorite_flag = (null !== $col) ? (boolean) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SampleArchiveTableMap::translateFieldName('CreatedAt', TableMap::TYPE_PHPNAME, $indexType)];
-            if ($col === '0000-00-00 00:00:00') {
-                $col = null;
-            }
             $this->created_at = (null !== $col) ? PropelDateTime::newInstance($col, null, 'DateTime') : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SampleArchiveTableMap::translateFieldName('UpdatedAt', TableMap::TYPE_PHPNAME, $indexType)];
-            if ($col === '0000-00-00 00:00:00') {
-                $col = null;
-            }
             $this->updated_at = (null !== $col) ? PropelDateTime::newInstance($col, null, 'DateTime') : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SampleArchiveTableMap::translateFieldName('ArchivedAt', TableMap::TYPE_PHPNAME, $indexType)];
-            if ($col === '0000-00-00 00:00:00') {
-                $col = null;
-            }
             $this->archived_at = (null !== $col) ? PropelDateTime::newInstance($col, null, 'DateTime') : null;
             $this->resetModified();
 
@@ -1232,13 +1217,13 @@ abstract class SampleArchive implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->a_category_id, PDO::PARAM_INT);
                         break;
                     case 'sticky_flag':
-                        $stmt->bindValue($identifier, (int) $this->sticky_flag, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->sticky_flag, PDO::PARAM_BOOL);
                         break;
                     case 'disable_flag':
-                        $stmt->bindValue($identifier, (int) $this->disable_flag, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->disable_flag, PDO::PARAM_BOOL);
                         break;
                     case 'favorite_flag':
-                        $stmt->bindValue($identifier, (int) $this->favorite_flag, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->favorite_flag, PDO::PARAM_BOOL);
                         break;
                     case 'created_at':
                         $stmt->bindValue($identifier, $this->created_at ? $this->created_at->format("Y-m-d H:i:s.u") : null, PDO::PARAM_STR);

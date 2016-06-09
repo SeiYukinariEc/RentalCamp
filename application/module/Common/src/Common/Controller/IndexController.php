@@ -17,10 +17,10 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $apikey = $this->params()->fromHeader('apikey', null);
-
-        $query = SampleQuery::create();
-        $aaa = $query->find();
+//        $apikey = $this->params()->fromHeader('apikey', null);
+//
+//        $query = SampleQuery::create();
+//        $aaa = $query->find();
         return new ViewModel();
     }
 }
